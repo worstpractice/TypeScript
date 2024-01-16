@@ -20,7 +20,7 @@ import {
     SymLink,
 } from "../helpers/virtualFileSystemWithWatch";
 
-describe("unittests:: tsserver:: ConfiguredProjects", () => {
+describe("unittests:: tsserver:: configuredProjects::", () => {
     it("create configured project without file list", () => {
         const configFile: File = {
             path: "/a/b/tsconfig.json",
@@ -233,7 +233,68 @@ describe("unittests:: tsserver:: ConfiguredProjects", () => {
         closeFilesForSession([commonFile1, "random/random.ts"], session);
         openFilesForSession([{ file: "/random/random.ts", content: "export const y = 10;" }], session);
 
+        // 6. Check closing commonFile2 first
+        host.writeFile(configFile.path, configFile.content);
+        closeFilesForSession(["/random/random.ts"], session);
+        openFilesForSession([commonFile1, commonFile2], session);
+        closeFilesForSession([commonFile2], session);
+        openFilesForSession([{ file: "/random/random.ts", content: "export const y = 10;" }], session);
+
         baselineTsserverLogs("configuredProjects", "add and then remove a config file when parent folder has config file", session);
+    });
+
+    it("add and then remove a config file when parent folder has config file and file from folder is not open", () => {
+        const configFile: File = {
+            path: `/user/username/projects/myproject/folder/tsconfig.json`,
+            content: jsonToReadableText({ files: ["commonFile1.ts"] }),
+        };
+        const parentConfigFile: File = {
+            path: `/user/username/projects/myproject/tsconfig.json`,
+            content: jsonToReadableText({ files: ["folder/commonFile2.ts"] }),
+        };
+        const commonFile1: File = {
+            path: `/user/username/projects/myproject/folder/commonFile1.ts`,
+            content: "let x = 1",
+        };
+        const commonFile2: File = {
+            path: `/user/username/projects/myproject/folder/commonFile2.ts`,
+            content: "let y = 1",
+        };
+
+        const host = createServerHost([libFile, commonFile1, commonFile2, configFile, parentConfigFile]);
+
+        const session = new TestSession(host);
+
+        // 1: When config file is deleted
+        openFilesForSession([commonFile2], session);
+
+        // remove the tsconfig file
+        host.deleteFile(configFile.path);
+        host.runQueuedTimeoutCallbacks();
+
+        // Add a tsconfig file
+        host.writeFile(configFile.path, configFile.content);
+        host.runQueuedTimeoutCallbacks();
+
+        // Check the state after files collected
+        openFilesForSession([{ file: "/random/random.ts", content: "export const y = 10;" }], session);
+
+        // Check status when all files are closed
+        closeFilesForSession([commonFile2, "/random/random.ts"], session);
+        openFilesForSession([{ file: "/random/random.ts", content: "export const y = 10;" }], session);
+
+        // 2: Check when file is closed when config file is deleted
+        closeFilesForSession(["/random/random.ts"], session);
+        openFilesForSession([commonFile2], session);
+
+        // remove the tsconfig file
+        host.deleteFile(configFile.path);
+
+        // State after open files are closed
+        closeFilesForSession([commonFile2], session);
+        openFilesForSession([{ file: "/random/random.ts", content: "export const y = 10;" }], session);
+
+        baselineTsserverLogs("configuredProjects", "add and then remove a config file when parent folder has config file and file from folder is not open", session);
     });
 
     it("add new files to a configured project without file list", () => {
