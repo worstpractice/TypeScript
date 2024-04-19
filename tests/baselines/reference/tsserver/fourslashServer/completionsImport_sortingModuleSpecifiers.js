@@ -106,6 +106,7 @@ Info seq  [hh:mm:ss:mss] event:
         "projectName": "/tests/cases/fourslash/server/tsconfig.json"
       }
     }
+Info seq  [hh:mm:ss:mss] getConfigFileNameForFile:: File: /tests/cases/fourslash/server/tsconfig.json ProjectRootPath: undefined:: Result: undefined
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,

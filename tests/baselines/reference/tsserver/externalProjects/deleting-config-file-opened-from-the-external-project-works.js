@@ -331,10 +331,11 @@ Projects::
 /user/someuser/project/WebApplication6.csproj (External) *new*
     projectStateVersion: 1
     projectProgramVersion: 0
-/user/someuser/project/tsconfig.json (Configured)
+/user/someuser/project/tsconfig.json (Configured) *changed*
     projectStateVersion: 1
     projectProgramVersion: 1
     isOrphan: true
+    noOpenRef: true *changed*
     deferredClose: true
 
 ScriptInfos::
@@ -556,5 +557,5 @@ Projects::
     projectProgramVersion: 1
     isClosed: true *changed*
     isOrphan: true
-    noOpenRef: true *changed*
+    noOpenRef: true
     deferredClose: true

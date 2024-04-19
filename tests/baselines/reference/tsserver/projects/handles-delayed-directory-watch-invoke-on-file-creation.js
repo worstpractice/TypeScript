@@ -556,6 +556,7 @@ Info seq  [hh:mm:ss:mss] 	Files (2)
 	  Matched by default include pattern '**/*'
 
 Info seq  [hh:mm:ss:mss] -----------------------------------------------
+Info seq  [hh:mm:ss:mss] getConfigFileNameForFile:: File: /users/username/projects/project/tsconfig.json ProjectRootPath: /users/username/projects/project:: Result: undefined
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,

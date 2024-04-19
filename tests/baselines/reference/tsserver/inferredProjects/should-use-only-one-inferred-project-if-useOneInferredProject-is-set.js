@@ -296,12 +296,11 @@ Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms FileWatcher:: Triggered with /user/username/projects/myproject/a/b/tsconfig.json 0:: WatchInfo: /user/username/projects/myproject/a/b/tsconfig.json 2000 undefined WatchType: Config file for the inferred project root
 Info seq  [hh:mm:ss:mss] FileWatcher:: Triggered with /user/username/projects/myproject/a/b/tsconfig.json 0:: WatchInfo: /user/username/projects/myproject/a/b/tsconfig.json 2000 undefined WatchType: Config file for the inferred project root
 Info seq  [hh:mm:ss:mss] getConfigFileNameForFile:: File: /user/username/projects/myproject/a/b/main.ts ProjectRootPath: undefined:: Result: /user/username/projects/myproject/a/b/tsconfig.json
-Info seq  [hh:mm:ss:mss] Scheduled: /user/username/projects/myproject/a/b/tsconfig.json, Cancelled earlier one
 Info seq  [hh:mm:ss:mss] Scheduled: *ensureProjectForOpenFiles*, Cancelled earlier one
 Info seq  [hh:mm:ss:mss] Elapsed:: *ms FileWatcher:: Triggered with /user/username/projects/myproject/a/b/tsconfig.json 0:: WatchInfo: /user/username/projects/myproject/a/b/tsconfig.json 2000 undefined WatchType: Config file for the inferred project root
 Before running Timeout callback:: count: 2
-3: /user/username/projects/myproject/a/b/tsconfig.json
-4: *ensureProjectForOpenFiles*
+1: /user/username/projects/myproject/a/b/tsconfig.json
+3: *ensureProjectForOpenFiles*
 //// [/user/username/projects/myproject/a/b/tsconfig.json]
 {
                     "compilerOptions": {
@@ -342,8 +341,8 @@ FsWatches::
   {}
 
 Timeout callback:: count: 2
-3: /user/username/projects/myproject/a/b/tsconfig.json *new*
-4: *ensureProjectForOpenFiles* *new*
+1: /user/username/projects/myproject/a/b/tsconfig.json *new*
+3: *ensureProjectForOpenFiles* *new*
 
 Projects::
 /dev/null/inferredProject1* (Inferred)

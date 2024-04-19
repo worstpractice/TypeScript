@@ -148,6 +148,7 @@ Info seq  [hh:mm:ss:mss] event:
         "projectName": "/b/tsconfig.json"
       }
     }
+Info seq  [hh:mm:ss:mss] getConfigFileNameForFile:: File: /a/tsconfig.json ProjectRootPath: undefined:: Result: undefined
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,

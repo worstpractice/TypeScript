@@ -288,6 +288,7 @@ Info seq  [hh:mm:ss:mss] 	Files (2)
 	  Matched by include pattern 'src/**/*.ts' in 'tsconfig.json'
 
 Info seq  [hh:mm:ss:mss] -----------------------------------------------
+Info seq  [hh:mm:ss:mss] getConfigFileNameForFile:: File: /home/username/project/tsconfig.json ProjectRootPath: /home/username/project:: Result: undefined
 Info seq  [hh:mm:ss:mss] event:
     {
       "seq": 0,

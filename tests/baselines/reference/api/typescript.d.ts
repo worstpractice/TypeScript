@@ -2872,8 +2872,6 @@ declare namespace ts {
          */
         class ConfiguredProject extends Project {
             readonly canonicalConfigFilePath: NormalizedPath;
-            /** Ref count to the project when opened from external project */
-            private externalProjectRefCount;
             private projectReferences;
             /**
              * If the project has reload from disk pending, it reloads (and then updates graph as part of that) instead of just updating the graph
@@ -3135,6 +3133,7 @@ declare namespace ts {
             private safelist;
             private readonly legacySafelist;
             private pendingProjectUpdates;
+            private pendingOpenFileProjectUpdates?;
             readonly currentDirectory: NormalizedPath;
             readonly toCanonicalFileName: (f: string) => string;
             readonly host: ServerHost;
@@ -3185,13 +3184,6 @@ declare namespace ts {
             private delayUpdateSourceInfoProjects;
             private delayUpdateProjectsOfScriptInfoPath;
             private handleDeletedFile;
-            /**
-             * This function goes through all the openFiles and tries to file the config file for them.
-             * If the config file is found and it refers to existing project, it schedules the reload it for reload
-             * If there is no existing project it just opens the configured project for the config file
-             * shouldReloadProjectFor provides a way to filter out files to reload configured project for
-             */
-            private delayReloadConfiguredProjectsForFile;
             private removeProject;
             private assignOrphanScriptInfosToInferredProject;
             /**
@@ -3218,6 +3210,8 @@ declare namespace ts {
              * the newly opened file.
              */
             private forEachConfigFileLocation;
+            private getConfigFileNameForFileFromCache;
+            private setConfigFileNameForFileInCache;
             /**
              * This function tries to search for a tsconfig.json for the given file.
              * This is different from the method the compiler uses because
@@ -3270,12 +3264,6 @@ declare namespace ts {
              */
             reloadProjects(): void;
             /**
-             * This function goes through all the openFiles and tries to file the config file for them.
-             * If the config file is found and it refers to existing project, it reloads it either immediately
-             * If there is no existing project it just opens the configured project for the config file
-             */
-            private reloadConfiguredProjectForFiles;
-            /**
              * Remove the root of inferred project if script info is part of another project
              */
             private removeRootOfInferredProjectIfNowPartOfOtherProject;
@@ -3295,12 +3283,14 @@ declare namespace ts {
             openClientFile(fileName: string, fileContent?: string, scriptKind?: ScriptKind, projectRootPath?: string): OpenConfiguredProjectResult;
             private findExternalProjectContainingOpenScriptInfo;
             private getOrCreateOpenScriptInfo;
+            private tryFindDefaultConfiguredProjectForOpenScriptInfo;
+            private tryFindDefaultConfiguredProjectAndLoadAncestorsForOpenScriptInfo;
             private assignProjectToOpenedScriptInfo;
-            private createAncestorProjects;
+            private forEachAncestorProject;
             private ensureProjectChildren;
-            private cleanupAfterOpeningFile;
+            private cleanupConfiguredProjects;
+            private cleanupProjectsAndScriptInfos;
             openClientFileWithNormalizedPath(fileName: NormalizedPath, fileContent?: string, scriptKind?: ScriptKind, hasMixedContent?: boolean, projectRootPath?: NormalizedPath): OpenConfiguredProjectResult;
-            private removeOrphanConfiguredProjects;
             private removeOrphanScriptInfos;
             private telemetryOnOpenFile;
             /**
@@ -3309,7 +3299,6 @@ declare namespace ts {
              */
             closeClientFile(uncheckedFileName: string): void;
             private collectChanges;
-            private closeConfiguredProjectReferencedFromExternalProject;
             closeExternalProject(uncheckedFileName: string): void;
             openExternalProjects(projects: protocol.ExternalProject[]): void;
             /** Makes a filename safe to insert in a RegExp */
