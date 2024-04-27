@@ -934,6 +934,7 @@ ScriptInfos::
 /a/B/lib/module2.ts (Open) *changed*
     open: true *changed*
     version: SVC-1-0
+    isOrphan: true *changed*
     containingProjects: 0 *changed*
         /a/tsconfig.json *deleted*
 /a/b/src/app.ts *deleted*
@@ -968,4 +969,5 @@ ScriptInfos::
 /a/B/lib/module2.ts *changed*
     open: false *changed*
     version: SVC-1-0
+    isOrphan: false *changed*
     containingProjects: 0

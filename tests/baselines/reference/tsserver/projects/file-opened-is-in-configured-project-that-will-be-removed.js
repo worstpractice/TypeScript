@@ -555,6 +555,7 @@ ScriptInfos::
 /user/username/projects/myproject/playground/tsconfig-json/tests/spec.ts (Open) *changed*
     open: true *changed*
     version: Text-1
+    isOrphan: true *changed*
     containingProjects: 0 *changed*
         /user/username/projects/myproject/playground/tsconfig.json *deleted*
 
@@ -729,5 +730,6 @@ ScriptInfos::
         /user/username/projects/myproject/playground/tsconfig-json/tsconfig.json
 /user/username/projects/myproject/playground/tsconfig-json/tests/spec.ts (Open) *changed*
     version: Text-1
+    isOrphan: false *changed*
     containingProjects: 1 *changed*
         /dev/null/inferredProject1* *default* *new*

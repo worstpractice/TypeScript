@@ -288,6 +288,18 @@ Projects::
     isOrphan: true *changed*
     deferredClose: true *changed*
 
+ScriptInfos::
+/a/b/f1.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /a/b/tsconfig.json
+/a/b/f2.ts (Open) *changed*
+    version: Text-1
+    isOrphan: true *changed*
+    containingProjects: 1
+        /a/b/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] Running: *ensureProjectForOpenFiles*
 Info seq  [hh:mm:ss:mss] Before ensureProjectForOpenFiles:
 Info seq  [hh:mm:ss:mss] Project '/a/b/tsconfig.json' (Configured)
@@ -372,11 +384,13 @@ Projects::
 ScriptInfos::
 /a/b/f1.ts (Open) *changed*
     version: SVC-1-0
+    isOrphan: false *changed*
     containingProjects: 2 *changed*
         /dev/null/inferredProject1* *default* *new*
         /a/b/tsconfig.json
 /a/b/f2.ts (Open) *changed*
     version: Text-1
+    isOrphan: false *changed*
     containingProjects: 2 *changed*
         /dev/null/inferredProject2* *default* *new*
         /a/b/tsconfig.json

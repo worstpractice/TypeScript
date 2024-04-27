@@ -296,6 +296,7 @@ Projects::
 ScriptInfos::
 /a/b/app.ts (Open) *changed*
     version: Text-1
+    isOrphan: true *changed*
     containingProjects: 0 *changed*
         /a/b/proj1 *deleted*
 /a/b/lib.ts
@@ -506,6 +507,7 @@ Projects::
 ScriptInfos::
 /a/b/app.ts (Open) *changed*
     version: Text-1
+    isOrphan: true
     containingProjects: 1 *changed*
         /a/b/tsconfig.json *new*
 /a/b/lib.ts *changed*
@@ -606,6 +608,7 @@ Projects::
 ScriptInfos::
 /a/b/app.ts (Open) *changed*
     version: Text-1
+    isOrphan: false *changed*
     containingProjects: 1 *changed*
         /a/b/proj1 *default* *new*
         /a/b/tsconfig.json *deleted*

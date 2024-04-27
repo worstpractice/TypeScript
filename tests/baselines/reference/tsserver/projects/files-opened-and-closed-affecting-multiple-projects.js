@@ -468,6 +468,7 @@ ScriptInfos::
         /a/b/projects/config/tsconfig.json *deleted*
 /a/b/projects/files/file1.ts (Open) *changed*
     version: Text-1
+    isOrphan: true *changed*
     containingProjects: 0 *changed*
         /a/b/projects/config/tsconfig.json *deleted*
 /a/b/projects/files/file2.ts (Open) *new*
@@ -558,6 +559,7 @@ Projects::
 ScriptInfos::
 /a/b/projects/files/file1.ts (Open) *changed*
     version: Text-1
+    isOrphan: false *changed*
     containingProjects: 1 *changed*
         /dev/null/inferredProject2* *default* *new*
 /a/b/projects/files/file2.ts (Open)

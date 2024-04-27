@@ -439,6 +439,22 @@ Projects::
     isOrphan: true *changed*
     deferredClose: true *changed*
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 2
+        /dev/null/inferredProject2*
+        /user/username/projects/myproject/tsconfig.json
+/user/username/projects/myproject/commonFile1.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig.json
+/user/username/projects/myproject/commonFile2.ts (Open)
+    version: SVC-1-0
+    containingProjects: 1
+        /dev/null/inferredProject2* *default*
+
 Host is moving to new time
 Info seq  [hh:mm:ss:mss] Running: *ensureProjectForOpenFiles*
 Info seq  [hh:mm:ss:mss] Before ensureProjectForOpenFiles:
@@ -529,6 +545,7 @@ ScriptInfos::
         /dev/null/inferredProject1* *new*
 /user/username/projects/myproject/commonFile1.ts (Open) *changed*
     version: SVC-1-0
+    isOrphan: false *changed*
     containingProjects: 2 *changed*
         /dev/null/inferredProject1* *default* *new*
         /user/username/projects/myproject/tsconfig.json
@@ -1363,6 +1380,17 @@ Projects::
     isOrphan: true *changed*
     deferredClose: true *changed*
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig.json
+/user/username/projects/myproject/commonFile1.ts (Open) *changed*
+    version: SVC-2-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] request:
     {
       "command": "open",
@@ -1443,6 +1471,7 @@ ScriptInfos::
         /dev/null/inferredProject4* *new*
 /user/username/projects/myproject/commonFile1.ts (Open)
     version: SVC-2-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/tsconfig.json
 /user/username/projects/myproject/commonFile2.ts (Open) *new*
@@ -1483,6 +1512,22 @@ Projects::
     dirty: true *changed*
     isOrphan: false *changed*
     deferredClose: undefined *changed*
+
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 2
+        /user/username/projects/myproject/tsconfig.json
+        /dev/null/inferredProject4*
+/user/username/projects/myproject/commonFile1.ts (Open) *changed*
+    version: SVC-2-0
+    isOrphan: false *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig.json *default*
+/user/username/projects/myproject/commonFile2.ts (Open)
+    version: SVC-2-0
+    containingProjects: 1
+        /dev/null/inferredProject4* *default*
 
 Info seq  [hh:mm:ss:mss] Running: /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] Reloading configured project /user/username/projects/myproject/tsconfig.json

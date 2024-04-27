@@ -210,6 +210,17 @@ Projects::
     isOrphan: true *changed*
     deferredClose: true *changed*
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /home/src/projects/project/tsconfig.json
+/home/src/projects/project/a.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /home/src/projects/project/tsconfig.json
+
 before waitForPendingPlugins
 
 fulfill import plugin-a
@@ -244,6 +255,17 @@ Projects::
     dirty: true *changed*
     isOrphan: false *changed*
     deferredClose: undefined *changed*
+
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /home/src/projects/project/tsconfig.json
+/home/src/projects/project/a.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: false *changed*
+    containingProjects: 1
+        /home/src/projects/project/tsconfig.json *default*
 
 Info seq  [hh:mm:ss:mss] Running: /home/src/projects/project/tsconfig.json
 Info seq  [hh:mm:ss:mss] Reloading configured project /home/src/projects/project/tsconfig.json

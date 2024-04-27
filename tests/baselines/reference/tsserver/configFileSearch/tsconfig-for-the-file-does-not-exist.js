@@ -381,6 +381,17 @@ Projects::
     projectProgramVersion: 2
     isOrphan: true
 
+ScriptInfos::
+/a/b/projects/project/src/index.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /a/b/projects/project/tsconfig.json
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /a/b/projects/project/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] Running: *ensureProjectForOpenFiles*
 Info seq  [hh:mm:ss:mss] Before ensureProjectForOpenFiles:
 Info seq  [hh:mm:ss:mss] Project '/a/b/projects/project/tsconfig.json' (Configured)
@@ -475,6 +486,7 @@ Projects::
 ScriptInfos::
 /a/b/projects/project/src/index.ts (Open) *changed*
     version: SVC-1-0
+    isOrphan: false *changed*
     containingProjects: 2 *changed*
         /dev/null/inferredProject1* *default* *new*
         /a/b/projects/project/tsconfig.json

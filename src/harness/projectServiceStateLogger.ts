@@ -54,6 +54,7 @@ interface ScriptInfoData {
     sourceInfos: ScriptInfo["sourceInfos"];
     documentPositionMapper: ScriptInfo["documentPositionMapper"];
     containingProjects: Set<Project>;
+    isOrphan: ReturnType<ScriptInfo["isOrphan"]>;
 }
 
 enum Diff {
@@ -178,6 +179,7 @@ export function patchServiceForStateBaseline(service: ProjectService) {
                 infoDiff = printProperty(PrintPropertyWhen.DefinedOrChangedOrNew, data, "declarationInfoPath", info.declarationInfoPath, infoDiff, infoPropertyLogs);
                 infoDiff = printSetPropertyValueWorker(PrintPropertyWhen.DefinedOrChangedOrNew, data?.sourceInfos, "sourceInfos", info.sourceInfos, infoDiff, infoPropertyLogs, identity);
                 infoDiff = printProperty(PrintPropertyWhen.DefinedOrChangedOrNew, data, "documentPositionMapper", info.documentPositionMapper, infoDiff, infoPropertyLogs, info.documentPositionMapper ? toStringDocumentPostionMapper(info.documentPositionMapper) : undefined);
+                infoDiff = printProperty(PrintPropertyWhen.TruthyOrChangedOrNew, data, "isOrphan", info.isScriptOpen() && info.isOrphan(), infoDiff, infoPropertyLogs, info.documentPositionMapper ? toStringDocumentPostionMapper(info.documentPositionMapper) : undefined);
                 let defaultProject: Project | undefined;
                 try {
                     if (isOpen) defaultProject = info.getDefaultProject();
@@ -209,6 +211,7 @@ export function patchServiceForStateBaseline(service: ProjectService) {
                 documentPositionMapper: info.documentPositionMapper,
                 containingProjects: new Set(info.containingProjects),
                 deferredDelete: info.deferredDelete,
+                isOrphan: info.isScriptOpen() && info.isOrphan(),
             }),
         );
     }

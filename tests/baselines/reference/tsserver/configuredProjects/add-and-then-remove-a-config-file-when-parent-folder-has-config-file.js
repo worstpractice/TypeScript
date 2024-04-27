@@ -230,6 +230,17 @@ Projects::
     projectProgramVersion: 0
     dirty: true
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+/user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] request:
     {
       "command": "open",
@@ -376,6 +387,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig.json *new*
 /user/username/projects/myproject/folder/commonFile1.ts (Open)
     version: SVC-1-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts (Open) *new*
@@ -418,6 +430,22 @@ Projects::
 /user/username/projects/myproject/tsconfig.json (Configured)
     projectStateVersion: 1
     projectProgramVersion: 1
+
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 2
+        /user/username/projects/myproject/folder/tsconfig.json
+        /user/username/projects/myproject/tsconfig.json
+/user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
+    version: SVC-1-0
+    isOrphan: false *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json *default*
+/user/username/projects/myproject/folder/commonFile2.ts (Open)
+    version: SVC-1-0
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig.json *default*
 
 Info seq  [hh:mm:ss:mss] Running: /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] Running: /user/username/projects/myproject/folder/tsconfig.json
@@ -1289,6 +1317,22 @@ Projects::
     projectProgramVersion: 0
     dirty: true
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 2
+        /user/username/projects/myproject/folder/tsconfig.json
+        /dev/null/inferredProject2*
+/user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
+    version: SVC-2-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+/user/username/projects/myproject/folder/commonFile2.ts (Open)
+    version: SVC-2-0
+    containingProjects: 1
+        /dev/null/inferredProject2* *default*
+
 Info seq  [hh:mm:ss:mss] Running: /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] Loading configured project /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] event:
@@ -1466,6 +1510,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig.json *new*
 /user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
     version: SVC-2-0
+    isOrphan: false *changed*
     containingProjects: 2 *changed*
         /dev/null/inferredProject2* *default* *new*
         /user/username/projects/myproject/folder/tsconfig.json
@@ -2362,6 +2407,17 @@ Projects::
     projectProgramVersion: 0
     dirty: true
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+/user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
+    version: SVC-3-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] request:
     {
       "command": "open",
@@ -2467,6 +2523,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig.json *new*
 /user/username/projects/myproject/folder/commonFile1.ts (Open)
     version: SVC-3-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts (Open) *new*
@@ -2530,6 +2587,7 @@ ScriptInfos::
 /user/username/projects/myproject/folder/commonFile1.ts *changed*
     open: false *changed*
     version: SVC-3-0
+    isOrphan: false *changed*
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts (Open)
@@ -2975,6 +3033,17 @@ Projects::
     projectProgramVersion: 0
     dirty: true
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+/user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
+    version: SVC-4-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] request:
     {
       "command": "open",
@@ -3080,6 +3149,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig.json *new*
 /user/username/projects/myproject/folder/commonFile1.ts (Open)
     version: SVC-4-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts (Open) *new*
@@ -3143,6 +3213,7 @@ ScriptInfos::
 /user/username/projects/myproject/folder/commonFile1.ts *changed*
     open: false *changed*
     version: SVC-4-0
+    isOrphan: false *changed*
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts (Open)
@@ -3759,6 +3830,17 @@ Projects::
     projectProgramVersion: 0
     dirty: true
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+/user/username/projects/myproject/folder/commonFile1.ts (Open) *changed*
+    version: SVC-5-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/folder/tsconfig.json
+
 Info seq  [hh:mm:ss:mss] request:
     {
       "command": "open",
@@ -3864,6 +3946,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig.json *new*
 /user/username/projects/myproject/folder/commonFile1.ts (Open)
     version: SVC-5-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts (Open) *new*
@@ -3926,6 +4009,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig.json
 /user/username/projects/myproject/folder/commonFile1.ts (Open)
     version: SVC-5-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts *changed*
@@ -4010,6 +4094,7 @@ ScriptInfos::
         /dev/null/inferredProject6* *default*
 /user/username/projects/myproject/folder/commonFile1.ts (Open)
     version: SVC-5-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts
@@ -4099,6 +4184,7 @@ ScriptInfos::
 /user/username/projects/myproject/folder/commonFile1.ts *changed*
     open: false *changed*
     version: SVC-5-0
+    isOrphan: false *changed*
     containingProjects: 1
         /user/username/projects/myproject/folder/tsconfig.json
 /user/username/projects/myproject/folder/commonFile2.ts

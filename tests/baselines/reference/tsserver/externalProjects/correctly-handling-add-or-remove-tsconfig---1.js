@@ -419,8 +419,9 @@ Projects::
     deferredClose: true *changed*
 
 ScriptInfos::
-/a/b/app.ts (Open)
+/a/b/app.ts (Open) *changed*
     version: Text-1
+    isOrphan: true *changed*
     containingProjects: 1
         /a/b/tsconfig.json
 /a/b/lib.ts *changed*
@@ -521,6 +522,7 @@ Projects::
 ScriptInfos::
 /a/b/app.ts (Open) *changed*
     version: Text-1
+    isOrphan: false *changed*
     containingProjects: 1 *changed*
         /a/b/proj1 *default* *new*
         /a/b/tsconfig.json *deleted*

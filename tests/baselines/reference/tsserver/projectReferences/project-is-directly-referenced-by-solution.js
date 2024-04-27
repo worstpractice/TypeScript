@@ -1406,6 +1406,25 @@ Projects::
     projectProgramVersion: 1
     dirty: true *changed*
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 2
+        /dev/null/inferredProject1*
+        /user/username/projects/myproject/tsconfig-src.json
+/dummy/dummy.ts
+    version: SVC-1-0
+    containingProjects: 0
+/user/username/projects/myproject/src/helpers/functions.ts
+    version: Text-2
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig-src.json
+/user/username/projects/myproject/src/main.ts (Open) *changed*
+    version: SVC-2-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig-src.json
+
 Info seq  [hh:mm:ss:mss] Running: /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] Starting updateGraphWorker: Project: /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] Config: /user/username/projects/myproject/tsconfig-src.json : {
@@ -1599,6 +1618,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig-src.json
 /user/username/projects/myproject/src/main.ts (Open) *changed*
     version: SVC-2-0
+    isOrphan: false *changed*
     containingProjects: 2 *changed*
         /dev/null/inferredProject2* *default* *new*
         /user/username/projects/myproject/tsconfig-src.json
@@ -1896,6 +1916,24 @@ Projects::
     projectProgramVersion: 3
     dirty: true *changed*
 
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig-src.json
+/dummy/dummy.ts
+    version: SVC-1-0
+    containingProjects: 0
+/user/username/projects/myproject/src/helpers/functions.ts
+    version: Text-2
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig-src.json
+/user/username/projects/myproject/src/main.ts (Open) *changed*
+    version: SVC-2-0
+    isOrphan: true *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig-src.json
+
 Info seq  [hh:mm:ss:mss] request:
     {
       "command": "open",
@@ -2031,6 +2069,7 @@ ScriptInfos::
         /user/username/projects/myproject/tsconfig-src.json
 /user/username/projects/myproject/src/main.ts (Open)
     version: SVC-2-0
+    isOrphan: true
     containingProjects: 1
         /user/username/projects/myproject/tsconfig-src.json
 
@@ -2077,6 +2116,22 @@ Projects::
     projectStateVersion: 4
     projectProgramVersion: 3
     dirty: true
+
+ScriptInfos::
+/a/lib/lib.d.ts
+    version: Text-1
+    containingProjects: 2
+        /user/username/projects/myproject/tsconfig-src.json
+        /dev/null/inferredProject1*
+/dummy/dummy.ts (Open)
+    version: SVC-1-0
+    containingProjects: 1
+        /dev/null/inferredProject1* *default*
+/user/username/projects/myproject/src/main.ts (Open) *changed*
+    version: SVC-2-0
+    isOrphan: false *changed*
+    containingProjects: 1
+        /user/username/projects/myproject/tsconfig-src.json *default*
 
 Info seq  [hh:mm:ss:mss] Running: /user/username/projects/myproject/tsconfig.json
 Info seq  [hh:mm:ss:mss] Starting updateGraphWorker: Project: /user/username/projects/myproject/tsconfig.json
