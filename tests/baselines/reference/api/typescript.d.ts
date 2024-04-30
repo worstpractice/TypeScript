@@ -9457,6 +9457,7 @@ declare namespace ts {
     interface EmitOutput {
         outputFiles: OutputFile[];
         emitSkipped: boolean;
+        diagnostics: readonly Diagnostic[];
     }
     interface OutputFile {
         name: string;
@@ -11191,6 +11192,7 @@ declare namespace ts {
     };
     function preProcessFile(sourceText: string, readImportFiles?: boolean, detectJavaScriptImports?: boolean): PreProcessedFileInfo;
     function transpileModule(input: string, transpileOptions: TranspileOptions): TranspileOutput;
+    function transpileDeclaration(input: string, transpileOptions: TranspileOptions): TranspileOutput;
     function transpile(input: string, compilerOptions?: CompilerOptions, fileName?: string, diagnostics?: Diagnostic[], moduleName?: string): string;
     interface TranspileOptions {
         compilerOptions?: CompilerOptions;
